@@ -5,8 +5,10 @@ import {
   CardImg,
   CardText,
   CardBody,
-  CardTitle
+  CardTitle, Breadcrumb,
+  BreadcrumbItem
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 
 
@@ -16,7 +18,6 @@ import {
         <Card>
           <CardImg top src={campsite.image} alt={campsite.name} />
           <CardBody>
-            <CardTitle>{campsite.name}</CardTitle>
             <CardText>{campsite.description}</CardText>
           </CardBody>
         </Card>
@@ -54,8 +55,20 @@ import {
       return (
         <div className="container">
           <div className="row">
-            <RenderCampsite campsite ={props.campsite}/>
-            <RenderComments comments= {props.campsite.comments}/>
+            <div className="col">
+              <Breadcrumb>
+                <BreadcrumbItem>
+                  <Link to="/home">Directory</Link>
+                </BreadcrumbItem>
+                <BreadcrumbItem active>{props.campsite.name}</BreadcrumbItem>
+              </Breadcrumb>
+              <h2>{props.campsite.name}</h2>
+              <hr />
+            </div>
+          </div>
+          <div className="row">
+            <RenderCampsite campsite={props.campsite} />
+            <RenderComments comments={props.comments} />
           </div>
         </div>
       );
