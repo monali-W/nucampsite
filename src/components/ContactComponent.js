@@ -25,6 +25,7 @@ class Contact extends Component {
         email: false
       }
     };
+
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -87,12 +88,12 @@ class Contact extends Component {
     event.preventDefault();
   }
   render() {
-      const errors = this.validate(
-        this.state.firstName,
-        this.state.lastName,
-        this.state.phoneNum,
-        this.state.email
-      );
+    const errors = this.validate(
+      this.state.firstName,
+      this.state.lastName,
+      this.state.phoneNum,
+      this.state.email
+    );
     return (
       <div className="container">
         <div className="row">
@@ -209,7 +210,7 @@ class Contact extends Component {
                     onBlur={this.handleBlur("email")}
                     onChange={this.handleInputChange}
                   />
-                  <feedback>{errors.email}</feedback>
+                  <FormFeedback>{errors.email}</FormFeedback>
                 </Col>
               </FormGroup>
               <FormGroup row>
