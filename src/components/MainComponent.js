@@ -10,14 +10,15 @@ import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 
-const mapStateToProps = props => {
+const mapStateToProps = state => {
   return {
-    campsites: this.state.campsites,
-    comments: this.state.comments,
-    partners: this.state.partners,
-    promotions: this.state.promotions
+    campsites: state.campsites,
+    comments: state.comments,
+    partners: state.partners,
+    promotions: state.promotions
   };
 };
+
 class Main extends Component {
   render() {
     const HomePage = () =>{
