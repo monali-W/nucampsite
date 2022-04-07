@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "./HeaderComponent"
+import Header from "./HeaderComponent";
 import CampsiteInfo from "./CampsiteInfoComponent";
 import Directory from "./DirectoryComponent";
 import Footer from "./FooterComponent";
@@ -19,15 +19,12 @@ import {
 } from "../redux/ActionCreators";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-
-
 const mapStateToProps = state => {
   return {
     campsites: state.campsites,
     comments: state.comments,
     partners: state.partners,
     promotions: state.promotions
-
   };
 };
 
@@ -39,7 +36,7 @@ const mapDispatchToProps = {
   fetchComments: () => fetchComments(),
   fetchPromotions: () => fetchPromotions(),
   fetchPartners: () => fetchPartners(),
-  postFeedback: (feedback) => postFeedback(feedback)
+  postFeedback: feedback => postFeedback(feedback)
 };
 class Main extends Component {
   componentDidMount() {
@@ -66,7 +63,9 @@ class Main extends Component {
           }
           promotionLoading={this.props.promotions.isLoading}
           promotionErrMess={this.props.promotions.errMess}
-          partner={this.props.partners.partners.filter(partner => partner.featured)[0]}
+          partner={
+            this.props.partners.partners.filter(partner => partner.featured)[0]
+          }
           partnerLoading={this.props.partners.isLoading}
           partnerErrMess={this.props.partners.errMess}
         />
@@ -112,7 +111,10 @@ class Main extends Component {
                 exact
                 path="/contactus"
                 render={() => (
-                  <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback= {this.props.postFeedback } />
+                  <Contact
+                    resetFeedbackForm={this.props.resetFeedbackForm}
+                    postFeedback={this.props.postFeedback}
+                  />
                 )}
               />
               <Route

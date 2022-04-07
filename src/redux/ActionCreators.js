@@ -1,7 +1,6 @@
 import * as ActionTypes from "./ActionTypes";
 import { baseUrl } from "../shared/baseUrl";
 
-
 export const fetchCampsites = () => dispatch => {
   dispatch(campsitesLoading());
 
@@ -121,7 +120,6 @@ export const postComment = (campsiteId, rating, author, text) => dispatch => {
     });
 };
 
-
 export const fetchPromotions = () => dispatch => {
   dispatch(promotionsLoading());
 
@@ -233,4 +231,3 @@ export const postFeedback = feedback => () => {
       alert("Your feedback could not be posted\nError: " + error.message);
     });
 };
-
